@@ -185,7 +185,10 @@ describe('WaffleFlow Studio — Integration Tests', () => {
         'href',
         'https://nirmalya-panigrahi.github.io/Sankey-Chart-Studio/',
       );
-      expect(allLink).toHaveAttribute('href', 'https://executive-charts.ai.studio/');
+      expect(allLink).toHaveAttribute(
+        'href',
+        'https://nirmalya-panigrahi.github.io/Executive-Charts/',
+      );
 
       expect(waffleLink).toHaveAttribute('aria-current', 'page');
       expect(barsLink).not.toHaveAttribute('aria-current');

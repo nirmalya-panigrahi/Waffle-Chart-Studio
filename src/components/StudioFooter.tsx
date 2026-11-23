@@ -29,7 +29,7 @@ export const STUDIO_FOOTER_LINKS: StudioFooterLink[] = [
   {
     id: 'all',
     label: 'All chart makers →',
-    href: 'https://executive-charts.ai.studio/',
+    href: 'https://nirmalya-panigrahi.github.io/Executive-Charts/',
     showDot: false,
   },
 ];
