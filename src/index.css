@@ -40,3 +40,147 @@
 input[type="range"] {
   accent-color: #003f5c;
 }
+
+/* Scoped Chart Studio Footer (.csf) */
+.csf {
+  --csf-bg: #FFFAF5;
+  --csf-ink: #3A3454;
+  --csf-peach-bg: #FFDCCB;
+  --csf-peach-dot: #D9694A;
+  --csf-mint-bg: #CFEBDD;
+  --csf-mint-dot: #3B9576;
+  --csf-lavender-bg: #DDD5F3;
+  --csf-lavender-dot: #7260B6;
+  --csf-neutral-bg: #ECE7F2;
+
+  box-sizing: border-box;
+  width: 100%;
+  background: var(--csf-bg);
+  color: var(--csf-ink);
+  border-top: 1.5px solid var(--csf-ink);
+  padding: 16px 16px calc(18px + env(safe-area-inset-bottom, 0px));
+  font-family: Figtree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .csf {
+    --csf-bg: #1F1C2B;
+    --csf-ink: #F3EEF9;
+    --csf-peach-bg: #4A2D23;
+    --csf-peach-dot: #FFB596;
+    --csf-mint-bg: #1F3E33;
+    --csf-mint-dot: #8CD9BE;
+    --csf-lavender-bg: #362E52;
+    --csf-lavender-dot: #BFB2EE;
+    --csf-neutral-bg: #2E2A40;
+  }
+}
+
+.csf *,
+.csf *::before,
+.csf *::after {
+  box-sizing: border-box;
+}
+
+.csf .csf-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.csf .csf-label {
+  margin: 0 0 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--csf-ink);
+}
+
+.csf .csf-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.csf .csf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 15px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--csf-ink);
+  background: transparent;
+  color: var(--csf-ink);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.2s ease;
+}
+
+.csf .csf-link:hover {
+  transform: translateY(-2px);
+}
+
+.csf .csf-link:focus-visible {
+  outline: 2px solid var(--csf-ink);
+  outline-offset: 3px;
+}
+
+.csf .csf-link[aria-current="page"] {
+  pointer-events: none;
+  cursor: default;
+  transform: none;
+}
+
+.csf .csf-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.csf .csf-link--waffle .csf-dot {
+  background: var(--csf-peach-dot);
+}
+.csf .csf-link--waffle:hover,
+.csf .csf-link--waffle[aria-current="page"] {
+  background: var(--csf-peach-bg);
+}
+
+.csf .csf-link--bars .csf-dot {
+  background: var(--csf-mint-dot);
+}
+.csf .csf-link--bars:hover,
+.csf .csf-link--bars[aria-current="page"] {
+  background: var(--csf-mint-bg);
+}
+
+.csf .csf-link--sankey .csf-dot {
+  background: var(--csf-lavender-dot);
+}
+.csf .csf-link--sankey:hover,
+.csf .csf-link--sankey[aria-current="page"] {
+  background: var(--csf-lavender-bg);
+}
+
+.csf .csf-link--all:hover,
+.csf .csf-link--all[aria-current="page"] {
+  background: var(--csf-neutral-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .csf .csf-link {
+    transition: none;
+  }
+  .csf .csf-link:hover {
+    transform: none;
+  }
+}
+

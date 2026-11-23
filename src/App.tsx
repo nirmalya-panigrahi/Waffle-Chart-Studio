@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { SlideCanvas } from './components/SlideCanvas';
 import { SidebarTabs } from './components/SidebarTabs';
+import { StudioFooter } from './components/StudioFooter';
 import { TopToolbar } from './components/TopToolbar';
 import { computeSlideLayout } from './gridPackingMath';
 import { useCustomIconCache } from './hooks/useCustomIconCache';
@@ -155,7 +156,7 @@ export default function App() {
   }, [config.slideTitle, layout.slideWidth, layout.slideHeight]);
 
   return (
-    <div className="h-screen w-screen flex flex-col overflow-hidden bg-slate-100 text-slate-900">
+    <div className="min-h-screen lg:h-screen w-full flex flex-col lg:overflow-hidden bg-slate-100 text-slate-900">
       <TopToolbar
         aspectRatio={config.aspectRatio}
         orientation={config.orientation}
@@ -231,6 +232,8 @@ export default function App() {
           onSubtitleChange={(slideSubtitle) => updateConfig({ slideSubtitle })}
         />
       </div>
+
+      <StudioFooter />
     </div>
   );
 }

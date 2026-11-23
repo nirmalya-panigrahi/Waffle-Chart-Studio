@@ -101,7 +101,7 @@ export const SlideCanvas: React.FC<SlideCanvasProps> = ({
   }
 
   return (
-    <main className="flex-1 bg-slate-100 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 overflow-auto min-w-0">
+    <main className="flex-1 bg-slate-100 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-5 overflow-auto min-w-0">
       <div className="w-full max-w-[1060px] flex flex-col items-center">
         {/* Slide Paper Container matching exact 16:9 or 4:3 ratio */}
         <div

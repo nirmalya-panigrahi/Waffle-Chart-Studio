@@ -158,4 +158,45 @@ describe('WaffleFlow Studio — Integration Tests', () => {
     await user.click(screen.getByRole('button', { name: /Equal split/i }));
     expect(legendGroup?.textContent).toContain('Segment D (25%)');
   });
+
+  it('renders StudioFooter with exact tool links and marks current pathname as aria-current="page"', () => {
+    const originalPath = window.location.pathname;
+    window.history.replaceState({}, '', '/Waffle-Chart-Studio/');
+
+    try {
+      render(<App />);
+
+      expect(screen.getByText('More chart makers from the studio')).toBeInTheDocument();
+
+      const waffleLink = screen.getByRole('link', { name: /Waffle Chart Studio/i });
+      const barsLink = screen.getByRole('link', { name: /Exec Bar Charts/i });
+      const sankeyLink = screen.getByRole('link', { name: /Sankey Chart Studio/i });
+      const allLink = screen.getByRole('link', { name: /All chart makers →/i });
+
+      expect(waffleLink).toHaveAttribute(
+        'href',
+        'https://nirmalya-panigrahi.github.io/Waffle-Chart-Studio/',
+      );
+      expect(barsLink).toHaveAttribute(
+        'href',
+        'https://nirmalya-panigrahi.github.io/Exec-Bar-Charts/',
+      );
+      expect(sankeyLink).toHaveAttribute(
+        'href',
+        'https://nirmalya-panigrahi.github.io/Sankey-Chart-Studio/',
+      );
+      expect(allLink).toHaveAttribute('href', 'https://executive-charts.ai.studio/');
+
+      expect(waffleLink).toHaveAttribute('aria-current', 'page');
+      expect(barsLink).not.toHaveAttribute('aria-current');
+      expect(sankeyLink).not.toHaveAttribute('aria-current');
+      expect(allLink).not.toHaveAttribute('aria-current');
+
+      const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true });
+      waffleLink.dispatchEvent(clickEvent);
+      expect(clickEvent.defaultPrevented).toBe(true);
+    } finally {
+      window.history.replaceState({}, '', originalPath);
+    }
+  });
 });
